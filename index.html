@@ -1,12 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>My custom web page</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <script src="script.js"></script> -->
-  </head>
-  <body>
-    <h1>Hello world</h1>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MotownFestival</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/MotownFestival.MVC.styles.css" asp-append-version="true" />
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MotownFestival</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+          <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Lineup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Tickets</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Practical Information</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" asp-controller="Home" asp-action="Pictures">Pictures</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" asp-controller="Home" asp-action="UploadPicture">Upload your pics</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="container">
+    <main role="main" class="pb-3">
+        <header>
+            <h1>
+                <img src="images/templatemo_logo.png" alt="CSS Templates" />
+                <span>Mowtown Festival</span>
+            </h1>
+            <h2>
+                <span>Now in a static web app</span>
+            </h2>
+        </header>
+    
+        <div>
+    
+            <h2>Artists</h2>
+    
+            <div class="row">
+                <!-- @foreach (var artist in Model!.Artists)
+              {
+                <div class="col">
+                  <img src="@artist.ImagePath" alt="image @artist.Name" class="img-thumbnail" />
+                </div>
+              } -->
+            </div>
+            <div><a href="#">View All</a></div>
+    
+        </div>
+    
+        <div>
+            <h2>Schedule</h2>
+            <div class="row">
+                <!-- @foreach (var item in Model!.GroupedGigsByDate)
+                {
+                <div class="col-sm-6">
+                    <h3>@item.Key.ToShortDateString()</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Hour</th>
+                                <th>Artist</th>
+                                <th>Stage</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var gig in item)
+                            {
+                            <tr>
+                                <td>@gig.Time.DateTime.ToShortTimeString()</td>
+                                <td>@gig.Artist.Name</td>
+                                <td>@gig.Stage.Name</td>
+                                <td><img class="favorite" id="fav-@gig.Id" src="@(gig.IsFavorite ? " images/favorite.png"
+                                        : "images/notfavorite.png" )" onclick="changeFavorite(@gig.Id)" /></td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                } -->
+            </div>
+        </div>
+    
+        <div>
+            <h2>Web Design</h2>
+    
+            <div class="row">
+                <div class="col-sm-6">
+    
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="images/woodstock.jpg" alt="image" class="img-fluid" />
+                        </div>
+                        <div class="col-8">
+                            <h3>Aerial shot</h3>
+                            <p>Donec varius tempor hendrerit. Nam convallis est ut lacus ullamcorper vitae scelerisque enim
+                                lobortis. Nam ut ipsum nec magna facilisis auctor ut porttitor enim. </p>
+                            <div class="button_01"><a href="#">More</a></div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="images/toiletpaper.jpg" alt="image" class="img-fluid" />
+                        </div>
+                        <div class="col-8">
+                            <h3>Be aware</h3>
+                            <p>Nunc sed pharetra dui. Donec malesuada rutrum imperdiet. Etiam nec risus sit amet diam
+                                malesuada dictum non vitae est. Vivamus ac odio eros.</p>
+                            <div class="button_01"><a href="#">More</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+  </div>
+
+  <footer class="border-top footer text-muted">
+    <div class="container">
+      &copy; 2021 - MotownFestival
+    </div>
+  </footer>
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="~/js/site.js" asp-append-version="true"></script>
+  @await RenderSectionAsync("Scripts", required: false)
+</body>
 </html>
